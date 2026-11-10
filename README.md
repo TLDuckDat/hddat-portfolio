@@ -2,7 +2,7 @@
 
 Trang giới thiệu bản thân của **Huỳnh Đức Đạt** – .NET Developer.
 
-🔗 [https://github.com/TLDuckDat/hddat-portfolio](https://github.com/TLDuckDat/hddat-portfolio/)
+🔗 https://tlduckdat.github.io/hddat-portfolio/
 
 ## Tính năng
 
