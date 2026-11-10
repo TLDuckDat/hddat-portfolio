@@ -1,0 +1,159 @@
+/* ===== Cảnh chú chó dạo chơi – nằm ở cuối trang giới thiệu ===== */
+.scene-section {
+  position: relative;
+  margin-top: 24px;
+}
+
+#viewport {
+  --s: 1;
+  position: relative;
+  width: 100%;
+  height: clamp(340px, 52vw, 680px);
+  overflow: hidden;
+  background: #1d1840;
+  /* mép trên mờ dần để cảnh hoà vào nền trang phía trên */
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%);
+          mask-image: linear-gradient(180deg, transparent 0, #000 14%);
+}
+
+/* Cảnh được thiết kế ở kích thước 1600x900 rồi scale "cover" theo khung #viewport */
+#stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1600px;
+  height: 900px;
+  transform: translate(-50%, -50%) scale(var(--s));
+  transform-origin: center;
+}
+
+.abs   { position: absolute; left: 0; top: 0; }
+.static { display: block; }
+
+/* Các lớp parallax: mỗi lớp rộng gấp đôi, JS dịch chuyển bằng translate3d */
+.layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3200px;
+  height: 900px;
+  will-change: transform;
+}
+.layer svg { display: block; }
+
+/* ===== Sương mù giữa các lớp núi ===== */
+.fog { position: absolute; left: 0; width: 1600px; pointer-events: none; }
+#fog1 { top: 540px; height: 110px; background: linear-gradient(180deg, transparent, rgba(255,176,170,.42) 55%, transparent); }
+#fog2 { top: 600px; height: 100px; background: linear-gradient(180deg, transparent, rgba(226,140,170,.35) 60%, transparent); }
+#fog3 { top: 650px; height: 70px;  background: linear-gradient(180deg, transparent, rgba(190,110,150,.25) 70%, transparent); }
+
+/* ===== Nhân vật & hiệu ứng ===== */
+#rider {
+  position: absolute;
+  left: 555px;
+  top: 494px;
+  width: 434px;
+  height: 378px;
+  overflow: visible;
+}
+
+#butterflies { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
+
+#particles {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1600px;
+  height: 900px;
+  pointer-events: none;
+}
+
+/* Lớp chỉnh màu ấm + vignette */
+#grade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 60% at 66% 50%, rgba(255,170,100,.16), transparent 70%),
+    radial-gradient(ellipse 95% 85% at 50% 50%, transparent 60%, rgba(20,8,40,.55) 100%);
+}
+
+/* ===== Animations ===== */
+.star { animation: twinkle 3s ease-in-out infinite alternate; }
+@keyframes twinkle { from { opacity: .15; } to { opacity: .9; } }
+
+.rays {
+  transform-box: view-box;
+  transform-origin: 1050px 430px;
+  animation: spin 160s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.lglow { animation: flicker 4s ease-in-out infinite; }
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  47% { opacity: .93; }
+  50% { opacity: .8; }
+  53% { opacity: .95; }
+}
+
+/* ===== UI ===== */
+.scene-section .ui {
+  position: absolute;
+  z-index: 5;
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  color: #fff4ea;
+}
+
+#title {
+  top: 16%;
+  left: 32px;
+  text-shadow: 0 2px 18px rgba(255,140,90,.6);
+  pointer-events: none;
+  transition: text-shadow 1.6s ease;
+}
+#title h2 {
+  margin: 0;
+  font: 600 clamp(34px, 5vw, 60px)/1 'Dancing Script', cursive;
+  letter-spacing: .5px;
+  transition: opacity .45s ease, transform .45s ease, filter .45s ease;
+}
+/* Hiệu ứng đổi chữ tiêu đề khi chuyển sáng/tối */
+#title h2.swap { opacity: 0; transform: translateY(-8px); filter: blur(4px); }
+/* Ban ngày: bóng chữ xanh trời dịu để chữ vẫn nổi trên nền trời sáng */
+body.is-day #title { text-shadow: 0 2px 16px rgba(50,90,150,.55), 0 0 2px rgba(60,80,120,.35); }
+#title p  { margin: 8px 0 0; font-weight: 300; font-size: clamp(13px, 1.4vw, 16px); opacity: .85; }
+
+#controls {
+  bottom: 22px;
+  right: 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(40, 20, 60, .35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 210, 180, .25);
+}
+#controls button {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: rgba(255, 220, 190, .9);
+  color: #4a2850;
+  font-size: 14px;
+  display: grid;
+  place-items: center;
+}
+#controls label { font-size: 13px; font-weight: 500; opacity: .9; }
+#controls input { width: 110px; accent-color: #ff9a76; }
+
+@media (max-width: 600px) {
+  #title { left: 16px; top: 14%; }
+  #controls { right: 12px; bottom: 12px; padding: 6px 12px; gap: 8px; }
+  #controls input { width: 80px; }
+}

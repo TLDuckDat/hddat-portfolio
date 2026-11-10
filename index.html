@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="only light">
+  <title>Huỳnh Đức Đạt | .NET Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ Gradient & filter dùng chung ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Bầu trời & mặt trời -->
+    <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#1b1640"/>
+      <stop offset=".22" stop-color="#3f2862"/>
+      <stop offset=".40" stop-color="#8e4479"/>
+      <stop offset=".52" stop-color="#d9647a"/>
+      <stop offset=".60" stop-color="#f58f72"/>
+      <stop offset=".67" stop-color="#ffbd78"/>
+      <stop offset=".74" stop-color="#ffe0a0"/>
+    </linearGradient>
+    <radialGradient id="sunGlow">
+      <stop offset="0"   stop-color="#fff1c4" stop-opacity=".85"/>
+      <stop offset=".25" stop-color="#ffc87e" stop-opacity=".45"/>
+      <stop offset="1"   stop-color="#ff8a6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sunDisc" cx=".45" cy=".4">
+      <stop offset="0" stop-color="#fffdf0"/>
+      <stop offset=".6" stop-color="#ffeab0"/>
+      <stop offset="1" stop-color="#ffc56e"/>
+    </radialGradient>
+    <linearGradient id="rayG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff0c8" stop-opacity=".09"/>
+      <stop offset="1" stop-color="#fff0c8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cloudHi" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"  stop-color="#5e3f7c" stop-opacity=".75"/>
+      <stop offset=".7" stop-color="#c8708f"/>
+      <stop offset="1"  stop-color="#ffb08e"/>
+    </linearGradient>
+    <linearGradient id="cloudLo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#b56a92" stop-opacity=".8"/>
+      <stop offset=".65" stop-color="#ff9f86"/>
+      <stop offset="1"   stop-color="#ffe0a6"/>
+    </linearGradient>
+
+    <!-- Núi đồi -->
+    <linearGradient id="farG" gradientUnits="userSpaceOnUse" x1="0" y1="380" x2="0" y2="640">
+      <stop offset="0" stop-color="#d993ae"/><stop offset="1" stop-color="#b97ea4"/>
+    </linearGradient>
+    <linearGradient id="midG" gradientUnits="userSpaceOnUse" x1="0" y1="460" x2="0" y2="680">
+      <stop offset="0" stop-color="#a16595"/><stop offset="1" stop-color="#734c80"/>
+    </linearGradient>
+    <linearGradient id="nearG" gradientUnits="userSpaceOnUse" x1="0" y1="590" x2="0" y2="720">
+      <stop offset="0" stop-color="#60406f"/><stop offset="1" stop-color="#432c58"/>
+    </linearGradient>
+
+    <!-- Mặt đất & đèn -->
+    <linearGradient id="walkG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#86637f"/><stop offset="1" stop-color="#674b6c"/>
+    </linearGradient>
+    <linearGradient id="roadG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#55405c"/><stop offset=".5" stop-color="#3f2f4c"/><stop offset="1" stop-color="#2a2038"/>
+    </linearGradient>
+    <radialGradient id="sheenG">
+      <stop offset="0" stop-color="#ffb27a" stop-opacity=".35"/><stop offset="1" stop-color="#ffb27a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="coneG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe9b0" stop-opacity=".30"/><stop offset="1" stop-color="#ffd38a" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="poolG">
+      <stop offset="0" stop-color="#ffd890" stop-opacity=".38"/><stop offset="1" stop-color="#ffc070" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lampGlow">
+      <stop offset="0"   stop-color="#fff6d0" stop-opacity=".95"/>
+      <stop offset=".18" stop-color="#ffd98a" stop-opacity=".55"/>
+      <stop offset="1"   stop-color="#ffaa60" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vendGlow">
+      <stop offset="0" stop-color="#e8f4ff" stop-opacity=".5"/><stop offset="1" stop-color="#bcd8ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Chú chó Shiba Inu -->
+    <linearGradient id="shibaFur" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f09b48"/>
+      <stop offset=".55" stop-color="#d97b2c"/>
+      <stop offset="1" stop-color="#b55d19"/>
+    </linearGradient>
+    <linearGradient id="shibaDarkFur" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c26922"/>
+      <stop offset="1" stop-color="#8c4410"/>
+    </linearGradient>
+    <linearGradient id="shibaCream" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff8ee"/>
+      <stop offset="1" stop-color="#ebd5c3"/>
+    </linearGradient>
+
+    <!-- Màu chân thống nhất: dùng toạ độ chung (userSpaceOnUse) để 4 chân
+         có cùng dải chuyển màu; chân phía xa là bản tối hơn cùng tông -->
+    <linearGradient id="legFur" gradientUnits="userSpaceOnUse" x1="0" y1="100" x2="0" y2="152">
+      <stop offset="0" stop-color="#d97b2c"/>
+      <stop offset="1" stop-color="#b55d19"/>
+    </linearGradient>
+    <linearGradient id="legCream" gradientUnits="userSpaceOnUse" x1="0" y1="144" x2="0" y2="170">
+      <stop offset="0" stop-color="#fff8ee"/>
+      <stop offset="1" stop-color="#ebd5c3"/>
+    </linearGradient>
+    <!-- Bụng kem mờ dần ở hai đầu để không lộ chỗ chân nối vào thân -->
+    <linearGradient id="bellyFade" gradientUnits="userSpaceOnUse" x1="66" y1="0" x2="124" y2="0">
+      <stop offset="0" stop-color="#f6e6d6" stop-opacity="0"/>
+      <stop offset=".3" stop-color="#f6e6d6" stop-opacity=".9"/>
+      <stop offset=".7" stop-color="#f6e6d6" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#f6e6d6" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="bodyClip">
+      <path d="M46,96 C44,76 66,74 96,76 C122,78 138,72 146,88 C154,104 144,124 126,124 C102,124 80,118 56,118 C44,118 46,106 46,96 Z"/>
+    </clipPath>
+    <linearGradient id="legFurFar" gradientUnits="userSpaceOnUse" x1="0" y1="100" x2="0" y2="152">
+      <stop offset="0" stop-color="#b9631f"/>
+      <stop offset="1" stop-color="#934812"/>
+    </linearGradient>
+    <linearGradient id="legCreamFar" gradientUnits="userSpaceOnUse" x1="0" y1="144" x2="0" y2="170">
+      <stop offset="0" stop-color="#e6d3c1"/>
+      <stop offset="1" stop-color="#cdb7a3"/>
+    </linearGradient>
+
+    <!-- Bướm phát sáng -->
+    <radialGradient id="bfGlowG">
+      <stop offset="0" stop-color="#9dffd6" stop-opacity=".75"/>
+      <stop offset=".35" stop-color="#3cf0a6" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#20d890" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bfWingG" cx="0" cy=".5" r="1">
+      <stop offset="0" stop-color="#f2fff8"/>
+      <stop offset=".45" stop-color="#6dffc4"/>
+      <stop offset="1" stop-color="#12b07a"/>
+    </radialGradient>
+    <radialGradient id="bfGlowY">
+      <stop offset="0" stop-color="#fff2a8" stop-opacity=".8"/>
+      <stop offset=".35" stop-color="#ffd23c" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#ffb020" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bfWingY" cx="0" cy=".5" r="1">
+      <stop offset="0" stop-color="#fffdf0"/>
+      <stop offset=".45" stop-color="#ffe266"/>
+      <stop offset="1" stop-color="#e09a10"/>
+    </radialGradient>
+    <!-- Bướm hồng, xanh dương, cam (thêm) -->
+    <radialGradient id="bfGlowP">
+      <stop offset="0" stop-color="#ffd1ec" stop-opacity=".75"/>
+      <stop offset=".35" stop-color="#ff7ac6" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#ff4fa8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bfWingP" cx="0" cy=".5" r="1">
+      <stop offset="0" stop-color="#fff3fa"/>
+      <stop offset=".45" stop-color="#ff9ad5"/>
+      <stop offset="1" stop-color="#d9408f"/>
+    </radialGradient>
+    <radialGradient id="bfGlowB">
+      <stop offset="0" stop-color="#cfe9ff" stop-opacity=".75"/>
+      <stop offset=".35" stop-color="#6cc4ff" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#3a9bff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bfWingB" cx="0" cy=".5" r="1">
+      <stop offset="0" stop-color="#f2faff"/>
+      <stop offset=".45" stop-color="#86d0ff"/>
+      <stop offset="1" stop-color="#2f7fe0"/>
+    </radialGradient>
+    <radialGradient id="bfGlowO">
+      <stop offset="0" stop-color="#ffe0c2" stop-opacity=".75"/>
+      <stop offset=".35" stop-color="#ff9f5a" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#ff7a30" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bfWingO" cx="0" cy=".5" r="1">
+      <stop offset="0" stop-color="#fff6ec"/>
+      <stop offset=".45" stop-color="#ffb26b"/>
+      <stop offset="1" stop-color="#e5661c"/>
+    </radialGradient>
+
+    <filter id="blur4" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
+    <filter id="soft" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation="1.2"/></filter>
+  </defs>
+</svg>
+
+<!-- ================= Header ================= -->
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Về đầu trang" data-i18n-aria="toTop"><span class="logo-mark" id="logoMark" aria-hidden="true"></span><span data-field="brand">Huỳnh Đức Đạt</span></a>
+
+    <nav class="nav" id="nav" aria-label="Điều hướng chính" data-i18n-aria="nav.main">
+      <a href="#about" data-i18n="nav.about">Giới thiệu</a>
+      <a href="#info" data-i18n="nav.info">Thông tin</a>
+      <a href="#skills" data-i18n="nav.skills">Kỹ năng</a>
+      <a href="#experience" data-i18n="nav.experience">Kinh nghiệm</a>
+      <a href="#education" data-i18n="nav.education">Học vấn</a>
+      <a href="#projects" data-i18n="nav.projects">Dự án</a>
+      <a href="#contact" data-i18n="nav.contact">Liên hệ</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="lang-btn" id="langBtn" aria-label="Switch to English" title="Switch to English">EN</button>
+      <button class="icon-btn" id="themeBtn" aria-label="Chuyển sang ban ngày">☀</button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="nav">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ================= Hero / Giới thiệu ================= -->
+  <section class="hero" id="about">
+    <div class="wrap hero-inner">
+      <div class="avatar" id="avatar" aria-hidden="true"></div>
+      <div class="hero-text">
+        <p class="eyebrow" id="greeting">Xin chào, mình là</p>
+        <h1 class="name" data-field="name"></h1>
+        <p class="role" data-field="role"></p>
+        <p class="bio" data-field="bio"></p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#contact" data-i18n="cta.contact">Liên hệ với mình</a>
+          <a class="btn ghost" href="#experience" data-i18n="cta.experience">Xem kinh nghiệm</a>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <ul class="stats" id="stats"></ul>
+    </div>
+  </section>
+
+  <!-- ================= Thông tin cá nhân ================= -->
+  <section class="section" id="info">
+    <div class="wrap">
+      <h2 class="section-title"><span class="num">01</span> <span data-i18n="sec.info">Thông tin cá nhân</span></h2>
+      <div class="grid info-grid" id="infoGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= Kỹ năng ================= -->
+  <section class="section" id="skills">
+    <div class="wrap">
+      <h2 class="section-title"><span class="num">02</span> <span data-i18n="sec.skills">Kỹ năng</span></h2>
+      <div class="grid skills-grid" id="skillGroups"></div>
+    </div>
+  </section>
+
+  <!-- ================= Kinh nghiệm ================= -->
+  <section class="section" id="experience">
+    <div class="wrap">
+      <h2 class="section-title"><span class="num">03</span> <span data-i18n="sec.experience">Kinh nghiệm làm việc</span></h2>
+      <ol class="timeline" id="timeline"></ol>
+    </div>
+  </section>
+
+  <!-- ================= Học vấn ================= -->
+  <section class="section" id="education">
+    <div class="wrap">
+      <h2 class="section-title"><span class="num">04</span> <span data-i18n="sec.education">Học vấn</span></h2>
+      <div class="grid edu-grid" id="eduGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= Dự án ================= -->
+  <section class="section" id="projects">
+    <div class="wrap">
+      <h2 class="section-title"><span class="num">05</span> <span data-i18n="sec.projects">Dự án nổi bật</span></h2>
+      <div class="grid project-grid" id="projectGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= Liên hệ ================= -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="card contact-card">
+        <div class="contact-intro">
+          <h2 class="section-title"><span class="num">06</span> <span data-i18n="sec.contact">Cùng trò chuyện nhé!</span></h2>
+          <p class="contact-lead" data-field="contactNote"></p>
+          <p class="contact-status"><span class="pulse" aria-hidden="true"></span><span data-i18n="contact.status">Sẵn sàng nhận dự án mới</span></p>
+          <a class="btn primary" id="mailCta" href="#" data-i18n="contact.cta">Gửi email cho mình</a>
+        </div>
+        <div class="contact-list" id="contactList"></div>
+      </div>
+    </div>
+  </section>
+  <!-- ================= Cảnh chú chó Shiba dạo chơi ================= -->
+  <section class="scene-section" id="scene" aria-label="Cảnh chú chó Shiba dạo chơi" data-i18n-aria="scene.label">
+  <div id="viewport">
+    <div id="stage">
+      <!-- Bầu trời, sao, mặt trời -->
+      <svg class="abs static" width="1600" height="900" viewBox="0 0 1600 900">
+        <rect width="1600" height="900" fill="url(#skyG)"/>
+        <g id="stars"></g>
+        <!-- Mặt trời: JS nâng cao lên khi chuyển sang ban ngày -->
+        <g id="sunGroup">
+          <g class="rays" id="rays"></g>
+          <circle cx="1050" cy="430" r="420" fill="url(#sunGlow)"/>
+          <circle cx="1050" cy="430" r="120" fill="url(#sunGlow)"/>
+          <circle cx="1050" cy="430" r="56"  fill="url(#sunDisc)"/>
+        </g>
+      </svg>
+  
+      <!-- Các lớp parallax -->
+      <div class="layer" id="L-clouds"></div>
+      <svg class="abs static" width="1600" height="900" viewBox="0 0 1600 900"><g id="birds"></g></svg>
+      <div class="layer" id="L-far"></div>
+      <div class="fog" id="fog1"></div>
+      <div class="layer" id="L-mid"></div>
+      <div class="fog" id="fog2"></div>
+      <div class="layer" id="L-near"></div>
+      <div class="fog" id="fog3"></div>
+      <div class="layer" id="L-town"></div>
+  
+      <!-- Mặt đất: cỏ, vỉa hè, lề đường, mặt đường -->
+      <svg class="abs static" id="ground" width="1600" height="900" viewBox="0 0 1600 900">
+        <rect y="696" width="1600" height="24" fill="#3b2a4b"/>
+        <rect y="718" width="1600" height="28" fill="url(#walkG)"/>
+        <rect y="718" width="1600" height="2" fill="#ffc29a" opacity=".35"/>
+        <rect y="744" width="1600" height="8" fill="#a3808f"/>
+        <rect y="744" width="1600" height="2" fill="#ffd0b0" opacity=".5"/>
+        <rect y="752" width="1600" height="148" fill="url(#roadG)"/>
+        <ellipse cx="1060" cy="775" rx="620" ry="34" fill="url(#sheenG)"/>
+        <rect y="884" width="1600" height="16" fill="#2a1e35"/>
+        <rect y="884" width="1600" height="2" fill="#7a5a78" opacity=".7"/>
+      </svg>
+  
+      <div class="layer" id="L-lamps"></div>
+      <div class="layer" id="L-road"></div>
+  
+      <!-- Bóng chú chó Shiba -->
+      <svg class="abs static" width="1600" height="900" viewBox="0 0 1600 900">
+        <ellipse id="dogShadow" cx="765" cy="792" rx="75" ry="9" fill="#120a1c" opacity=".42" filter="url(#soft)"/>
+      </svg>
+  
+      <!-- ============ Chú chó Shiba Inu đi bộ (hướng sang phải) ============ -->
+      <svg id="rider" viewBox="-50 -40 310 270">
+        <!-- Chân sau phía xa -->
+        <g id="legBL">
+          <path d="M55,108 Q44,126 50,142 L56,162" fill="none" stroke="url(#legFurFar)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M53,146 L56,162" fill="none" stroke="url(#legCreamFar)" stroke-width="10" stroke-linecap="round"/>
+          <ellipse cx="59" cy="164" rx="7.5" ry="4" fill="url(#legCreamFar)"/>
+        </g>
+  
+        <!-- Chân trước phía xa -->
+        <g id="legFL">
+          <path d="M126,110 L130,142 L133,162" fill="none" stroke="url(#legFurFar)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M131,146 L133,162" fill="none" stroke="url(#legCreamFar)" stroke-width="10" stroke-linecap="round"/>
+          <ellipse cx="136" cy="164" rx="7.5" ry="4" fill="url(#legCreamFar)"/>
+        </g>
+  
+        <!-- Thân, đuôi & đầu Shiba -->
+        <g id="dogBody">
+          <!-- Hai tà khăn bay phía sau gáy (JS vẽ) – nằm trong dogBody để nhấp nhô cùng thân -->
+          <g id="clothBack"></g>
+  
+          <!-- Đuôi cuộn tròn đặc trưng của Shiba -->
+          <g id="dogTail">
+            <path d="M50,94 C26,82 18,52 36,44 C52,37 64,56 54,70 C48,78 40,74 42,67" fill="none" stroke="url(#shibaFur)" stroke-width="16" stroke-linecap="round"/>
+            <path d="M32,47 C46,38 60,52 53,66" fill="none" stroke="url(#shibaCream)" stroke-width="9" stroke-linecap="round"/>
+          </g>
+  
+          <!-- Thân mình -->
+          <path d="M46,96 C44,76 66,74 96,76 C122,78 138,72 146,88 C154,104 144,124 126,124 C102,124 80,118 56,118 C44,118 46,106 46,96 Z" fill="url(#shibaFur)"/>
+          <!-- Bụng & ngực trắng kem (Urajiro) -->
+          <!-- Chỉ phủ ngực phía trước chân trước và dải bụng giữa hai cặp chân,
+               tránh vùng gốc chân để chân cam không "cắm" lên nền trắng -->
+          <g clip-path="url(#bodyClip)">
+            <path d="M146,86 C154,96 154,112 146,122 C142,114 141,104 146,86 Z" fill="url(#shibaCream)"/>
+            <path d="M66,121 C84,113 106,114 124,121 L124,130 L66,130 Z" fill="url(#bellyFade)"/>
+          </g>
+          <!-- Viền nắng hoàng hôn trên lưng -->
+          <path d="M52,79 C76,75 112,77 136,78" fill="none" stroke="#ffe0b5" stroke-width="2" stroke-linecap="round" opacity=".65"/>
+  
+  
+          <!-- Đầu Shiba Inu -->
+          <g id="dogHead">
+            <!-- Tai sau -->
+            <path d="M132,48 L128,22 L146,40 Z" fill="#b55d19" stroke="#8c4410" stroke-width="1" stroke-linejoin="round"/>
+            <!-- Cổ & hộp sọ -->
+            <path d="M122,76 C120,56 130,40 148,40 C165,40 176,52 177,64 C187,66 194,70 194,76 C194,84 183,89 170,88 C160,92 144,92 132,86 Z" fill="url(#shibaFur)"/>
+            <!-- Khăn quàng đỏ: dải vòng gọn quanh cổ, không rủ xuống ngực/chân -->
+            <path d="M116,73 C120,68 127,67 131,71 C137,78 142,85 147,92 C144,97 138,99 134,96 C128,89 122,81 116,73 Z" fill="#c93b4b"/>
+            <path d="M120,70 C126,69 130,72 134,77 C138,83 141,87 144,92" fill="none" stroke="#ff9aa2" stroke-width="1.3" stroke-linecap="round" opacity=".6"/>
+            <!-- Nút thắt sau gáy – nơi hai tà khăn bay ra -->
+            <ellipse cx="119" cy="74" rx="4.6" ry="3.8" fill="#a82f3e"/>
+            <!-- Má, cằm & mõm trắng kem (Urajiro) -->
+            <path d="M150,89 C158,76 169,72 178,72 C187,72 194,74 194,77 C194,84 182,89 169,89 C160,91 153,91 150,89 Z" fill="url(#shibaCream)"/>
+            <ellipse cx="163" cy="80" rx="11" ry="8" fill="url(#shibaCream)"/>
+            <!-- Tai trước vểnh nhọn + lông trắng trong tai -->
+            <path d="M140,48 L145,19 L162,43 Z" fill="url(#shibaFur)" stroke="#b55d19" stroke-width="1" stroke-linejoin="round"/>
+            <path d="M144,45 L147,25 L157,43 Z" fill="#f5e1d3" opacity=".85"/>
+            <!-- Chấm lông mày trắng đặc trưng (Shiba麻呂眉) -->
+            <ellipse cx="169" cy="54" rx="3.8" ry="2.2" transform="rotate(-12 169 54)" fill="#fff8ee"/>
+            <!-- Mắt đen láy long lanh -->
+            <ellipse cx="168" cy="62" rx="3.4" ry="3.8" fill="#1a1215"/>
+            <circle cx="169.3" cy="60.6" r="1.2" fill="#fff"/>
+            <circle cx="167" cy="63.5" r=".5" fill="#fff" opacity=".7"/>
+            <!-- Chóp mũi đen -->
+            <path d="M190,69 Q196,69 195,74 Q193,77 189,75 Z" fill="#1f1619"/>
+            <circle cx="192.5" cy="70.8" r=".9" fill="#fff" opacity=".6"/>
+            <!-- Khuôn miệng cười mỉm -->
+            <path d="M174,80 Q181,84 188,78" fill="none" stroke="#4a2c2a" stroke-width="1.6" stroke-linecap="round"/>
+            <!-- Má hồng nhẹ -->
+            <ellipse cx="166" cy="72" rx="4.5" ry="2.5" fill="#ff857a" opacity=".35"/>
+            <!-- Viền nắng trên trán & sống mũi -->
+            <path d="M147,20 L162,42 Q173,48 177,63 L191,69" fill="none" stroke="#ffe5bd" stroke-width="1.4" stroke-linecap="round" opacity=".8"/>
+          </g>
+        </g>
+  
+        <!-- Chân sau phía gần -->
+        <g id="legBR">
+          <path d="M60,104 Q48,124 55,142 L60,164" fill="none" stroke="url(#legFur)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M57,147 L60,164" fill="none" stroke="url(#legCream)" stroke-width="11" stroke-linecap="round"/>
+          <ellipse cx="63" cy="166" rx="8" ry="4.2" fill="url(#legCream)"/>
+        </g>
+  
+        <!-- Chân trước phía gần -->
+        <g id="legFR">
+          <path d="M132,108 L136,142 L139,164" fill="none" stroke="url(#legFur)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M137,147 L139,164" fill="none" stroke="url(#legCream)" stroke-width="11" stroke-linecap="round"/>
+          <ellipse cx="142" cy="166" rx="8" ry="4.2" fill="url(#legCream)"/>
+        </g>
+      </svg>
+  
+      <!-- Bướm phát sáng (JS điều khiển) -->
+      <svg id="butterflies" width="1600" height="900" viewBox="0 0 1600 900"></svg>
+  
+      <div class="layer" id="L-fg"></div>
+      <canvas id="particles" width="1600" height="900"></canvas>
+      <div id="grade"></div>
+    </div>
+  </div>
+
+    <div class="ui" id="title">
+      <h2>Chiều hoàng hôn</h2>
+    </div>
+    <div class="ui" id="controls">
+      <button id="playBtn" aria-label="Tạm dừng">❚❚</button>
+      <label for="speed" data-i18n="scene.speed">Tốc độ</label>
+      <input id="speed" type="range" min="0.2" max="2.2" step="0.05" value="1">
+    </div>
+  </section>
+</main>
+
+<!-- ================= Footer ================= -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <a class="footer-brand" href="#top" aria-label="Về đầu trang" data-i18n-aria="toTop"><span class="logo-mark small" id="logoMarkFooter" aria-hidden="true"></span><span data-field="brand"></span></a>
+      <p class="muted" data-field="tagline"></p>
+    </div>
+    <nav class="footer-nav" aria-label="Liên kết cuối trang" data-i18n-aria="footer.nav">
+      <a href="#about" data-i18n="nav.about">Giới thiệu</a>
+      <a href="#experience" data-i18n="nav.experience">Kinh nghiệm</a>
+      <a href="#projects" data-i18n="nav.projects">Dự án</a>
+      <a href="#contact" data-i18n="nav.contact">Liên hệ</a>
+      <a href="#scene" data-i18n="footer.scene">Dạo chơi cùng Shiba</a>
+    </nav>
+    <div class="socials" id="socials"></div>
+  </div>
+  <div class="wrap copyright">
+    <span>© <span id="year"></span> <span data-field="name"></span>. <span data-i18n="footer.made">Làm với ☕ và một chú Shiba.</span></span>
+    <a href="#top" class="to-top" data-i18n="footer.top">Lên đầu trang ↑</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="about.js"></script>
+</body>
+</html>
